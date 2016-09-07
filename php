@@ -1,10 +1,16 @@
+rpm -ivh http://mirrors.sohu.com/fedora-epel/6/x86_64/epel-release-6-8.noarch.rpm //安装第三方源
+
+yum update
+
+yum repolist  //查看第三方源是否存在
+
 wget http://cn2.php.net/get/php-7.0.10.tar.gz/from/this/mirror //下载
 
 mv mirror php-7.0.10.tar.gz  //重命名
 
 tar -xzvf php-7.0.10.tar.gz  //解压
 
-yum -y install libxml2 libxml2-devel openssl openssl-devel curl-devel libjpeg-devel libpng-devel freetype-devel libmcrypt-devel  gcc
+yum -y install libxml2 libxml2-devel openssl openssl-devel curl-devel libjpeg-devel libpng-devel freetype-devel libmcrypt-devel libmcrypt  gcc
 
     ./configure \
     --prefix=/usr/local/php \ 
@@ -39,6 +45,6 @@ yum -y install libxml2 libxml2-devel openssl openssl-devel curl-devel libjpeg-de
     --enable-soap \
     --enable-phpdbg \
     --enable-phpdbg-webhelper \
-    --enable-phpdbg-debug \
+    --enable-phpdbg-debug
     
     make && make install
