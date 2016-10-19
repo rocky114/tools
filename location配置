@@ -1,0 +1,86 @@
+            location = / {
+                    index           1.html;
+                    access_log      /usr/local/nginx/logs/access1.log main;
+            }
+ 
+            location  / {
+                    index           2.html;
+                    access_log      /usr/local/nginx/logs/access2.log main;
+            }
+            location /documents/ {
+                    index           3.html;
+                    root            html;
+                    access_log      /usr/local/nginx/logs/access3.log main;
+            }
+            location ~ /documents/abc {
+                    index           4.html;
+                    root            html;
+                    access_log      /usr/local/nginx/logs/access4.log main;
+            }
+            location ^~ /images/ {
+                    index           1.html;
+                    access_log      /usr/local/nginx/logs/access5.log main;
+            }
+            location ~* \.(gif|jpg|jpeg)$ {
+                    index           6.html;
+                    access_log      /usr/local/nginx/logs/access6.log main;
+            }
+            location /images/xinzhu {
+                    index           7.html;
+                    access_log      /usr/local/nginx/logs/access7.log main;
+            }
+            location /images/abc {
+                    index           8.html;
+                    access_log      /usr/local/nginx/logs/access8.log main;
+            }
+            location ~ /images/abc/ {
+                    index           9.html;
+                    access_log      /usr/local/nginx/logs/access9.log main;
+            }
+            # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+            #
+            location ~ \.php$ {
+                root           /usr/local/nginx/html;
+                fastcgi_pass   127.0.0.1:9000;
+                fastcgi_index  index.php;
+                fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+                include        fastcgi_params;
+            }
+
+            已=开头表示精确匹配
+            如 A 中只匹配根目录结尾的请求，后面不能带任何字符串。
+            ^~ 开头表示uri以某个常规字符串开头，不是正则匹配
+            ~ 开头表示区分大小写的正则匹配;
+            ~* 开头表示不区分大小写的正则匹配
+            / 通用匹配, 如果没有其它匹配,任何请求都会匹配到
+
+
+            路由选择 ：即请求地址从最上面的location进行匹配，匹配到的请求的最高级别停止匹配
+
+            (location =) > (location 完整路径) > (location ^~ 路径) > (location ~,~* 正则顺序) > (location 部分起始路径) > (/)
+
+            附上一段网上说明：
+
+            /
+            精确完全匹配，即使/index.html也匹配不了
+
+            /documents
+            完整路径匹配
+
+            /documents/xinzhu
+            部分匹配，往下搜索没有正则匹配，
+
+            /images
+            匹配以images开头的地址
+
+            /images/abc
+            完整路径匹配
+
+            /images/1.jpeg
+            匹配以images开头的地址
+
+            /1.jpeg
+            正则匹配
+
+
+            备注：通过查看每个location的日志进行确认路由进行的匹配
