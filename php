@@ -48,3 +48,32 @@ yum -y install libxml2 libxml2-devel openssl openssl-devel curl-devel libjpeg-de
     --enable-phpdbg-debug
     
     make && make install
+    
+    
+    常用参数
+    --prefix=/usr/local/php7.0.16 \
+--enable-bcmath \
+--with-bz2 \
+--with-zlib \
+--enable-zip \
+--with-curl \
+--enable-fpm \
+--with-gd \
+--enable-gd-native-ttf \
+--with-freetype-dir \
+--with-jpeg-dir \
+--with-png-dir \
+--with-xpm-dir \
+--with-zlib-dir \
+--enable-ftp \
+--enable-mbstring \
+--with-openssl \
+--enable-pcntl \
+--enable-sockets \
+--enable-soap \
+--enable-shmop \
+--enable-sysvmsg \
+--enable-sysvsem \
+--enable-sysvshm \
+--with-pdo-mysql=mysqlnd \
+--with-mysqli=mysqlnd \
