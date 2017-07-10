@@ -1,0 +1,22 @@
+yum -y install epel-release
+
+yum -y install supervisor.noarch
+
+##修改配置文件
+/etc/supervisord.conf
+
+[program:app]
+command=/path/php /path/cli.php command/command
+user=www
+
+##启动supervisor
+supervisord -c /etc/supervisord.conf
+
+##开启进程管理客户端
+supervisorctl
+
+##开启app进程
+start app
+
+##重启app进程
+reload app
