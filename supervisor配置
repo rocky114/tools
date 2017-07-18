@@ -5,9 +5,12 @@ yum -y install supervisor.noarch
 ##修改配置文件
 /etc/supervisord.conf
 
+;;app为进程标识
 [program:app]
-command=/path/php /path/cli.php command/command
+command=/bin/php /home/wwwroot/dev91.fecar.com/cli.php Merchant/Test/index
+directory=/home/wwwroot/dev91.fecar.com
 user=www
+autorestart=true
 
 ##启动supervisor
 supervisord -c /etc/supervisord.conf
@@ -20,3 +23,6 @@ start app
 
 ##重启app进程
 reload app
+
+##更新配置文件
+update
