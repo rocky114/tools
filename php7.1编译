@@ -1,0 +1,31 @@
+    yum -y install epel-release.noarch
+    
+    yum -y install libxml2.x86_64 libxml2-devel.x86_64 openssl.x86_64 openssl-devel.x86_64 gd-devel.x86_64 gd.x86_64
+    
+    ./configure \
+    --prefix=/usr/local/php7 \
+    --enable-calendar \
+    --enable-sockets \
+    --enable-mbstring \
+    --enable-zip \
+    --enable-bcmath \
+    --enable-pcntl \
+    --enable-sysvmsg \
+    --enable-sysvsem \
+    --enable-sysvshm \
+    --enable-fpm  \
+    --with-curl \
+    --with-iconv \
+    --with-zlib \
+    --with-gd \
+    --enable-gd-native-ttf \
+    --with-freetype-dir \
+    --with-jpeg-dir \
+    --with-png-dir \
+    --with-xpm-dir \
+    --with-openssl \
+    --enable-mysqlnd
+    --with-mysqli=mysqlnd \
+    --with-pdo-mysql=mysqlnd
+
+    ln -s /usr/local/php7/bin/php /bin/php
