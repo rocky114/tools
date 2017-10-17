@@ -22,10 +22,13 @@
     --with-freetype-dir \
     --with-jpeg-dir \
     --with-png-dir \
-    --with-xpm-dir \
     --with-openssl \
-    --enable-mysqlnd
+    --enable-mysqlnd \
     --with-mysqli=mysqlnd \
-    --with-pdo-mysql=mysqlnd
+    --with-pdo-mysql=mysqlnd \
+    --enable-dtrace \
+    --enable-phpdbg \
+    --enable-phpdbg-webhelper \
+    --enable-phpdbg-debug
 
     ln -s /usr/local/php7/bin/php /bin/php
