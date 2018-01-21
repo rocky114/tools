@@ -17,3 +17,15 @@ http://www.rainyluo.net/post/php_mutilcurl
 http://blog.csdn.net/lxcnn/article/details/4756030
 
 http://blog.csdn.net/delphiwcdj/article/details/7387325#_Toc320277435  strace/ltrace
+
+
+shell脚本控制器文档
+	https://github.com/ouqiang/gocron
+
+浏览器推送，基于http2协议，浏览器线程service worker实现
+	service worker概述：https://developers.google.com/web/fundamentals/primers/service-workers/?hl=zh-cn
+	技术文档： https://developers.google.com/web/fundamentals/push-notifications/?hl=zh-cn
+	github扩展包：https://github.com/web-push-libs/web-push-php
+
+
+	基于google云服务实现的推送：https://firebase.google.com/docs/cloud-messaging/js/client
