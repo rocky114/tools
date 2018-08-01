@@ -10,3 +10,9 @@ preg_match('/(?<!product)_path/', $string, $matchs);//断言此位置的前面�
 
 echo '<pre>';
 print_r($matchs);
+
+$string = '<p>text1</p><p>text2 <span class="theClass">text3</span></p>';
+preg_match('/<[^>]*>(*SKIP)(*F)|[^<]+/', $string, $matches); 
+#(*SKIP)匹配位置移动到下一个
+#(*F)将匹配结果置为失败状态，执行右边的或条件匹配
+
