@@ -16,3 +16,7 @@ preg_match('/<[^>]*>(*SKIP)(*F)|[^<]+/', $string, $matches);
 #(*SKIP)匹配位置移动到下一个
 #(*F)将匹配结果置为失败状态，执行右边的或条件匹配
 
+(?-1)匹配前一个捕获组
+(?+1)匹配后一个捕获组
+
+(?P<name>pattern) || (?<name>pattern) || (?'name'pattern) ##指定匹配组名
