@@ -42,6 +42,7 @@
     --enable-bcmath \
     --enable-pcntl \
     --enable-fpm  \
+    --enable-intl \
     --with-curl \
     --with-iconv \
     --with-zlib \
